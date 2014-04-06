@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from HttpCodeError do |error|
-    render status: error.code, template: "errors/#{error.code}", layout: 'application'
+    json_render html: error.code
   end
 
   # @param action [Symbol]
