@@ -1,0 +1,17 @@
+doctype html
+html
+  head= render 'head'
+
+  body
+    .nav.navbar-wrapper.navbar-fixed-top role="navigation"
+      .navbar-inner
+        .container
+          a.brand href=root_path
+            img src=image_path('https://app.mavenlink.com/images/mavenlink-logo-transparent.png')
+    #content
+      .container data-identifier='content'
+        = yield
+    footer
+    #overlay.Overlay
+    #ClickBlocker
+    = render 'js'

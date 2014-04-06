@@ -1,0 +1,8 @@
+.AjaxContainer data-url=workspace_tasks_path(@workspace.id)
+  h1
+    | Workspace:&nbsp;
+    strong= @workspace.title
+.AjaxPopup.popup.modal-content data-identifier='new-task' data-url=new_workspace_task_path(@workspace.id)
+  blockquote
+    strong Please wait
+    p Loading the form...

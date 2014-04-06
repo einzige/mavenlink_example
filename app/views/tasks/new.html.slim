@@ -1,0 +1,24 @@
+.modal-header
+  i.PopupTrigger.fa.fa-times-circle.close type="button" data-target="new-task" aria-hidden="true"
+  .modal-title Create New Task
+  span Here you can create your task
+
+.modal-body
+  form.Form action=workspace_tasks_path(@workspace.id) method='post'
+    .form-group
+      label Title
+      input.form-control name='task[title]' placeholder='Enter task title'
+      .error data-field='title'
+    .form-group
+      label Description
+      textarea.form-control name='task[description]' placeholder='Enter task description'
+      .error data-field='description'
+
+    input type='hidden' name='task[story_type]' value='task'
+    input type='hidden' name='task[workspace_id]' value=@workspace.id
+
+    .clearfix
+
+    .form-group.pull-right
+      input.btn.blue type='submit' value='Create'
+      .clearfix

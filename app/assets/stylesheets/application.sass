@@ -1,0 +1,249 @@
+$deepest_depth: 1000 // Z-Index start for elements displaying on top of others
+$border_radius: 10px
+$color_background: #f7f7f7
+$color_border: #d7d7d7
+$color_blue: #3b9fd1
+$color_pink: #ea2e49
+$color_green: #8dc63f
+$color_text_light: #898989
+$color_text_dark: #464646
+$color_gear: #d7d7d7
+$color_gear_hover: #464646
+$box_margin: 30px
+
+@import "mixins/**/*"
+@import "bootstrap"
+
+/* General */
+
+body
+  background-color: $color_background
+  color: $color_text_dark
+  font-family: 'Open Sans', Arial, sans-serif !important
+
+a
+  color: $color_text_light
+  &:hover
+    color: $color_text_dark
+
+h1
+  font-size: 28px
+h2
+  font-size: 24px
+h3
+  font-size: 20px
+  padding-bottom: 15px
+
+img
+  border: none
+
+.hidden
+  display: none
+
+.error
+  color: $color_pink
+  font-size: 12px
+  display: none
+
+.btn
+  &:focus
+    color: #FFFFFF
+    outline: none
+
+#content
+  margin-top: 45px
+
+.container
+  max-width: 970px
+
+.box
+  @include border-radius($border_radius)
+  background: #FFFFFF
+  border: 1px solid $color_border
+  display: block
+  margin: 0 auto
+  overflow: hidden
+  position: relative
+
+textarea
+  color: #898989
+  border: none
+  font-size: 14px
+  font-weight: 400
+  line-height: 18px
+  &:focus
+    outline: none
+
+/* Buttons */
+
+.btn
+  @include border-radius($border_radius)
+  color: #FFFFFF
+  &.black
+    @include black-area
+  &.blue
+    @include blue-area
+  &.pink
+    @include pink-area
+  &:hover
+    color: #FFFFFF
+    &.black
+      @include linear-gradient(#2d2d2d, #3e3e3e)
+    &.blue
+      @include linear-gradient(#359acd, #7dd3f3)
+    &.pink
+      @include linear-gradient(#ea2f49, #ea4e65)
+
+/* Font Awesome Styles */
+
+.fa
+  font-family: 'Open Sans', Arial, sans-serif !important
+  font-weight: 600
+  &:before
+    font-family: 'FontAwesome' !important
+    font-weight: 400
+
+/* Navigation */
+
+.nav
+  background: white
+  border-bottom: 1px solid #277aa3
+  height: 45px
+  .brand
+    img
+      margin-top: 6px
+      margin-left: 15px
+      height: 31px
+
+/* Popup Overlay */
+
+#overlay
+  z-index: $deepest_depth + 10000
+  background: black
+  display: none
+  opacity: 0.5
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  top: 0
+
+/* Popup */
+
+.popup
+  @include border-radius($border_radius)
+  border: 5px solid #464646
+  display: none
+  min-height: 50px
+  min-width: 200px
+  position: fixed
+  left: 50%
+  top: 50%
+  z-index: $deepest_depth + 10001
+
+  /* Header Area */
+
+  .modal-header
+    border: none
+    position: relative
+    text-align: center
+    .close
+      position: absolute
+      top: 5px
+      right: 5px
+    .modal-title
+      color: $color_blue
+      font-size: 32px
+      line-height: 100%
+    span
+      color: $color_text_light
+      display: block
+      font-size: 13px
+      margin-top: 5px
+
+  .modal-body
+    display: block
+    padding: 5px 20px 0
+    .form-control
+      background-color: $color_background
+      border: 1px solid $color_border
+      &:focus
+        background-color: #FFFFFF
+        border: 1px solid $color_blue
+    input[type="submit"]
+      &:focus
+        color: #FFFFFF
+        outline: none
+    .text-danger
+      color: red
+      font-size: 11px
+      margin: 0
+      padding: 0
+    .margin-left, .margin-right
+      width: 165px
+    .margin-right
+      margin-right: 10px
+    .margin-left
+      margin-left: 10px
+    .terms_text
+      color: #cccccc
+      font-size: 11px
+      width: 180px
+
+  .modal-footer
+    font-size: 12px
+    margin-top: 0
+    text-align: center
+    span
+      color: $color_text_light
+    a
+      color: $color_text_light
+      &:hover
+        color: $color_text_dark
+
+/* Header Edit Popup */
+/** REQUIRED BY JS (Modifiable, not deletable) **/
+
+#ClickBlocker
+  z-index: $deepest_depth + 10002
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  background: white
+  position: fixed
+  opacity: 0.6
+
+.js-highlight
+  border: 2px solid red
+  display: visible
+
+.pending
+  opacity: 0.3
+  &:before
+    opacity: 1
+    color: red
+    padding: 20px
+    margin: 20px
+    position: absolute
+    top: 50%
+    right 50%
+    content: "PLEASE WAIT..."
+  &:after
+    content: url("http://media1.giphy.com/media/4cdbND0Sd0bCg/giphy.gif")
+
+
+.PostsContainer.pending
+  &:after
+    opacity: 0.5
+    margin-left: 120px
+    top: -100px
+    position: relative
+    content: url("http://antyapps.pl/wp-content/themes/ac_antyapps/img/preloader.gif")
+
+footer
+  min-height: 50px
+  margin-top: 30px
+
+textarea
+  min-height: 130px

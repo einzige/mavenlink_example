@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 
 # Use SCSS for stylesheets
@@ -25,9 +26,20 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+# Required by Heroku
+gem 'rails_12factor', group: :production
+gem 'unicorn'
+gem 'foreman', group: :development
+
+# Application Specific
+gem 'mavenlink', github: 'einzige/mavenlink_gem', branch: 'master'
+gem 'slim-rails'
+gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bootstrap-sass'
+gem 'kaminari'
+
+group :development, :test do
+  gem 'awesome_print'
 end
 
 # Use ActiveModel has_secure_password
@@ -37,7 +49,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

@@ -1,0 +1,18 @@
+h1 Workspaces
+- @workspaces.each do |workspace|
+  ul
+    li= link_to workspace.title, workspace_path(workspace.id)
+
+h3 Create new workspace
+
+form.form-inline.Form action=workspaces_path method='post'
+  .form-group
+    label Title
+    | &nbsp;
+    input.form-control name='workspace[title]' placeholder='Enter workspace title'
+    .error data-field='title'
+  input type='hidden' name='workspace[creator_role]' value='maven'
+
+  | &nbsp;
+  .form-group
+    input.btn.blue type='submit' value='Create'

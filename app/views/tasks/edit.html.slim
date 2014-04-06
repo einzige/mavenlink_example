@@ -1,0 +1,20 @@
+h4 Edit task ##{@task.id}
+
+form.Form action=workspace_task_path(@workspace.id, @task.id) method='post'
+  input type='hidden' name='_method' value='put'
+
+  .form-group
+    label Title
+    input.form-control name='task[title]' placeholder='Enter task title' value=@task.title
+    .error data-field='title'
+  .form-group
+    label Description
+    textarea.form-control name='task[description]' placeholder='Enter task description'
+      = @task.description
+    .error data-field='description'
+
+  .clearfix
+
+  .form-group.pull-right
+    input.btn.blue type='submit' value='Save'
+    .clearfix

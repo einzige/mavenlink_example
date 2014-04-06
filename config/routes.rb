@@ -1,4 +1,8 @@
 MavenlinkExample::Application.routes.draw do
+  resources :workspaces, only: [:index, :show, :create] do
+    resources :tasks
+  end
+  root to: 'dashboard#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

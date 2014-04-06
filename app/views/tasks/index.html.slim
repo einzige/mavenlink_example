@@ -1,0 +1,35 @@
+div data-identifier='tasks-list'
+  h1
+    | Workspace:&nbsp;
+    strong= @workspace.title
+
+  h3 Tasks
+
+  - if @tasks.any?
+    table.table.table-striped
+      thead
+        tr.warning
+          th Title
+          th Description
+          th
+          th
+
+      - @tasks.each do |task|
+        tr
+          td= task.title
+          td= task.description
+          td width=50
+            a.btn.btn-warning href=edit_workspace_task_path(@workspace.id, task.id) edit
+          td width=50
+            button.btn.btn-danger.AjaxFormLink data-_method='delete' href=workspace_task_path(@workspace.id, task.id) destroy
+
+    = paginate @tasks
+
+  - else
+    blockquote.bg-warning
+      strong No tasks
+      p You can try adding new one
+
+  .clearfix
+  hr
+  .btn.blue.PopupTrigger data-target='new-task' Create new task
