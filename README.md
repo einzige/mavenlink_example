@@ -1,6 +1,6 @@
 ## See also on Heroku:
 
-!(http://mavenlink.herokuapp.com)[http://mavenlink.herokuapp.com]
+![http://mavenlink.herokuapp.com](http://mavenlink.herokuapp.com)
 
 ## Installing
 
